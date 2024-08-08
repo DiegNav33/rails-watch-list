@@ -1,0 +1,21 @@
+<div id="bgImg"></div>
+<div class="container" id="bgContainer">
+  <section class= "text-center text-danger">
+    <h1>New list</h1>
+    <h2>Name your list and then you could add movies</h2>
+  </section>
+</div>
+<div class="container">
+  <section class="d-flex justify-content-center align-items-center">
+    <article class="card shadow-sm my-5" style="max-width: 500px; width: 100%;">
+      <div class="card-body">
+        <h4 class="text-center mb-4">How do you want to name your list?</h4>
+        <%= simple_form_for @list do |f| %>
+          <%= f.input :name, placeholder: 'Drama...', label: false, input_html: { class: 'form-control' } %>
+          <%= f.input :image, as: :file %>
+          <%= f.submit class: 'btn btn-outline-success btn-block mt-3' %>
+        <% end %>
+      </div>
+    </article>
+  </section>
+</div>
