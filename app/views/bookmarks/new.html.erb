@@ -1,0 +1,31 @@
+<% if @list.image.attached? %>
+  <div id="bgImg" style="background-image: url(<%= rails_blob_path(@list.image, only_path: true) %>);"></div>
+<% else %>
+  <div id="bgImg"></div>
+<% end %>
+<div class="container position-relative" id="bgContainer">
+  <section class= "text-center text-danger">
+    <h1>Add movies on<%= @list.name %></h1>
+    <div class="arrow-down">
+      <i class="fa-solid fa-angles-down"></i>
+    </div>
+    <div>
+      <%= link_to "Back", list_path(@list),  class: "btn btn-success", id: "backButton" %>
+    </div>
+  </section>
+</div>
+<div class="container">
+  <%= render "shared/flash_notice" %>
+  <section class="d-flex justify-content-center align-items-center">
+    <article class="card shadow-sm my-5" style="max-width: 500px; width: 100%;">
+      <div class="card-body">
+        <h4 class="text-center mb-4">Add a new bookmark</h4>
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <%= f.association :movie, collection: Movie.all, prompt: "Choose a movie", label: false, input_html: { class: 'form-control' } %>
+          <%= f.input :comment, placeholder: 'Your comment...', label: false, input_html: { class: 'form-control mt-3' } %>
+          <%= f.submit "Add Bookmark", class: 'btn btn-outline-success btn-block mt-3' %>
+        <% end %>
+      </div>
+    </article>
+  </section>
+</div>

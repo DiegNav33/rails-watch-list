@@ -1,3 +1,58 @@
+<% if @list.image.attached? %>
+  <div id="bgImg" style="background-image: url(<%= rails_blob_path(@list.image, only_path: true) %>);"></div>
+<% else %>
+  <div id="bgImg"></div>
+<% end %>
+<div class="container position-relative" id="bgContainer">
+  <section class= "text-center text-danger">
+    <h1><%= @list.name %></h1>
+    <div>
+      <%= link_to "Add movies", new_list_bookmark_path(@list), class: "btn btn-danger"%>
+    </div>
+    <div>
+      <%= link_to "Delete list", list_path(@list), class: "btn btn-danger btn-sm", id: "deleteButton", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the list '#{@list.name}'?"} %>
+    </div>
+    <div>
+      <%= link_to "Back", lists_path,  class: "btn btn-success", id: "backButton" %>
+    </div>
+    <div>
+      <p class="btn btn-success disabled" id="moviesCount"><%= pluralize(@list.movies.count, 'movie') %></p>
+    </div>
+  </section>
+</div>
 <div class="container">
   <%= render "shared/flash_notice" %>
+  <div class="row">
+
+    <% if @list.bookmarks.blank? %>
+      <h3 class="text-center my-4">There are no movies yet</h3>
+    <% else %>
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class="col-md-4 mb-0">
+          <!-- Card component -->
+          <div class="card shadow-sm mt-5" style="height: 400px;">
+            <!-- Card Header with Poster URL -->
+            <div class="card-header p-0" style="height: 50%; overflow: hidden;">
+              <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="<%= bookmark.movie.title %>" style="height: 100%; object-fit: cover;">
+            </div>
+
+            <!-- Card Body with Title, Rating, and Overview -->
+            <div class="card-body" style="height: 40%; overflow: auto;">
+              <div class="d-flex align-items-center mb-3">
+                <h5 class="card-title m-0 me-2"><%= bookmark.movie.title %> |</h5>
+                <p class="m-0"><%= bookmark.movie.rating %> <i class="fa-solid fa-star" style="color:orange;"></i></p>
+              </div>
+              <p class="card-text"><%= bookmark.movie.overview %></p>
+            </div>
+
+            <!-- Card Footer with Comment and Delete Button -->
+            <div class="card-footer d-flex justify-content-between align-items-center" style="height: 10%;">
+              <p class="mb-0"><i class="fa-solid fa-quote-left"></i> <%= bookmark.comment %> <i class="fa-solid fa-quote-right"></i></p>
+              <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{bookmark.movie.title}?"}, class: "btn btn-link btn-sm text-danger" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

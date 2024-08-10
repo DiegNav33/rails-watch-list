@@ -13,7 +13,8 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
- @import "partials/body";
- @import "partials/header";
- @import "pages/index"
+@import "bootstrap";
+@import 'font-awesome';
+@import "partials/body";
+@import "partials/header";
+@import "pages/index"

@@ -1,8 +1,11 @@
 <div id="bgImg"></div>
-<div class="container" id="bgContainer">
+<div class="container position-relative" id="bgContainer">
   <section class= "text-center text-danger">
     <h1>New list</h1>
     <h2>Name your list and then you could add movies</h2>
+    <div>
+      <%= link_to "Back", lists_path,  class: "btn btn-success", id: "backButton" %>
+    </div>
   </section>
 </div>
 <div class="container">
