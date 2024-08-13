@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show new]
 
   def index
     @lists = List.all
