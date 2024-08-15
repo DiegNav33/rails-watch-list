@@ -29,8 +29,9 @@
           <h2>Available lists: (<%= @lists.count %>)</h2>
           <div class="row">
             <% @lists.each do |list| %>
-              <div class="col-md-4 mb-4">
+              <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <!-- Card component -->
+
                 <%= link_to list_path(list), class: 'card my-4', id: "cardsIndex", style: "background: url(#{list.image.attached? ? rails_blob_path(list.image, only_path: true) : asset_path('bg.jpg')}); background-size: cover; background-position: center; color:#fff;" do %>
                   <!-- Card Content -->
                   <div class="card-body d-flex align-items-center justify-content-center" style="min-height: 150px;">

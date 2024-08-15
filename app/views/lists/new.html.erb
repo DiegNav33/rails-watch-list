@@ -4,7 +4,11 @@
     <h1>New list</h1>
     <h2>Name your list and then you could add movies</h2>
     <div>
-      <%= link_to "Back", lists_path,  class: "btn btn-success btn-sm", id: "backButton" %>
+      <%= link_to lists_path, id: "backButton" do %>
+        <div class="backButton d-flex align-items-center justify-content-center">
+          <i class="fa-solid fa-angles-left"></i>
+        </div>
+      <% end %>
     </div>
   </section>
 </div>
@@ -15,7 +19,7 @@
         <h4 class="text-center mb-4">How do you want to name your list?</h4>
         <%= simple_form_for @list do |f| %>
           <%= f.input :name, placeholder: 'Drama...', label: false, input_html: { class: 'form-control' } %>
-          <%= f.input :image, as: :file %>
+          <%= f.input :image, as: :file, input_html: { accept: 'image/jpeg, image/png' } %>
           <%= f.submit class: 'btn btn-outline-success btn-block mt-3' %>
         <% end %>
       </div>

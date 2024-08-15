@@ -10,7 +10,11 @@
       <i class="fa-solid fa-angles-down"></i>
     </div>
     <div>
-      <%= link_to "Back", list_path(@list),  class: "btn btn-success btn-sm", id: "backButton" %>
+      <%= link_to list_path(@list), id: "backButton" do %>
+        <div class="backButton d-flex align-items-center justify-content-center">
+          <i class="fa-solid fa-angles-left"></i>
+        </div>
+      <% end %>
     </div>
   </section>
 </div>

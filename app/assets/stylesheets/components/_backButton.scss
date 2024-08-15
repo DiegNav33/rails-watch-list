@@ -3,3 +3,16 @@
   top: 10px;
   left: 0;
 }
+
+.backButton {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid lightgray;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  .fa-solid {
+    color: black;
+  }
+}

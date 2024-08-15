@@ -3,7 +3,7 @@
       <h4 class="text-center mt-5 my-4">There are no movies yet</h4>
     <% else %>
       <% @list.bookmarks.each do |bookmark| %>
-        <div class="col-md-4 mb-0">
+        <div class="col-12 col-md-6 col-lg-4 mb-0">
           <!-- Card component -->
           <div class="card shadow-sm mt-5" id="cardsBookmark" style="height: 400px;">
             <!-- Card Header with Poster URL -->
@@ -13,9 +13,9 @@
 
             <!-- Card Body with Title, Rating, and Overview -->
             <div class="card-body" style="height: 40%; overflow: auto;">
-              <div class="d-flex align-items-center mb-3">
-                <h5 class="card-title m-0 me-2"><%= bookmark.movie.title %> |</h5>
-                <p class="m-0"><%= bookmark.movie.rating %> <i class="fa-solid fa-star" style="color:orange;"></i></p>
+              <div class=" mb-3">
+                <h5 class="card-title m-0 me-2"><%= bookmark.movie.title %></h5>
+                <p class="m-0"><%= format('%.2f', bookmark.movie.rating) %> <i class="fa-solid fa-star" style="color:orange;"></i></p>
               </div>
               <p class="card-text"><%= bookmark.movie.overview %></p>
             </div>

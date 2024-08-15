@@ -13,7 +13,11 @@
       <%= link_to "Delete list", list_path(@list), class: "btn btn-danger btn-sm", id: "deleteButton", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the list '#{@list.name}'?"} %>
     </div>
     <div>
-      <%= link_to "Back", lists_path,  class: "btn btn-success btn-sm", id: "backButton" %>
+      <%= link_to lists_path, id: "backButton" do %>
+        <div class="backButton d-flex align-items-center justify-content-center">
+          <i class="fa-solid fa-angles-left"></i>
+        </div>
+      <% end %>
     </div>
     <div>
       <p class="btn btn-success disabled btn-sm m-0" id="moviesCount"><%= pluralize(@list.movies.count, 'movie') %></p>
