@@ -1,8 +1,13 @@
 <div id="bgImg"></div>
 <div class="container" id="bgContainer">
   <section class= "text-center text-danger">
-    <h1>Welcome to PopCorn</h1>
-    <h2>Create a list and save any kind of movies</h2>
+
+    <% if user_signed_in? %>
+      <h1>Welcome <%= @user.first_name %></h1>
+    <% else %>
+      <h1>Welcome to PopCorn</h1>
+      <h2>Create a list and save any kind of movies</h2>
+    <% end %>
     <% if @lists.blank? %>
        <div >
         <%= link_to "Create your first list", new_list_path, class: "btn btn-danger btn-lg", id: "btnMain" %>
@@ -17,7 +22,6 @@
 <div class="container">
   <section>
     <article>
-      <%= render "shared/flash_notice" %>
       <% if @lists.blank? %>
         <h3 class="text-center my-4">There are no lists created yet</h3>
       <% else %>

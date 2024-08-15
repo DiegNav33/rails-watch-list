@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center mt-5">
+  <div class="card" style="width: 500px;">
+    <div class="card-body">
+      <h2 class="card-title text-center">Profile</h2>
+       <!-- Affichage de la photo de profil -->
+      <div class="d-flex justify-content-center my-4">
+        <%= image_tag(@user.profile_picture.present? ? @user.profile_picture : "logo.png",
+                      alt: "Profile Picture",
+                      class: "rounded-circle") %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <h4><em><%= @user.first_name %> <%= @user.last_name %></em></h4>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary w-auto" %>
+        <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-outline-danger w-auto" %>
+      </div>
+    </div>
+  </div>
+</div>

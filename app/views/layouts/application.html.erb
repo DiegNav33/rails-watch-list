@@ -14,12 +14,8 @@
     <%= render "shared/header" %>
     <main>
       <% if flash[:notice].present? || flash[:alert].present? %>
-        <% if flash[:notice].present? %>
-          <p class="notice"><%= flash[:notice] %></p>
-        <% end %>
-        <% if flash[:alert].present? %>
-          <p class="alert"><%= flash[:alert] %></p>
-        <% end %>
+        <%= render "shared/flash_notice" %>
+        <%= render "shared/flash_alert" %>
       <% end %>
       <%= yield %>
     </main>

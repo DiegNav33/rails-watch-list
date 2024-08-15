@@ -13,15 +13,14 @@
       <%= link_to "Delete list", list_path(@list), class: "btn btn-danger btn-sm", id: "deleteButton", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the list '#{@list.name}'?"} %>
     </div>
     <div>
-      <%= link_to "Back", lists_path,  class: "btn btn-success", id: "backButton" %>
+      <%= link_to "Back", lists_path,  class: "btn btn-success btn-sm", id: "backButton" %>
     </div>
     <div>
-      <p class="btn btn-success disabled" id="moviesCount"><%= pluralize(@list.movies.count, 'movie') %></p>
+      <p class="btn btn-success disabled btn-sm m-0" id="moviesCount"><%= pluralize(@list.movies.count, 'movie') %></p>
     </div>
   </section>
 </div>
 <div class="container">
-  <%= render "shared/flash_notice" %>
   <%= render "shared/bookmarks" %>
   <hr class="my-5">
   <%= render "shared/reviews" %>
