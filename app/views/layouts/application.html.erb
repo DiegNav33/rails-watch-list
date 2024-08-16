@@ -12,7 +12,7 @@
 
   <body>
     <%= render "shared/header" %>
-    <main>
+    <main class="position-relative">
       <% if flash[:notice].present? || flash[:alert].present? %>
         <%= render "shared/flash_notice" %>
         <%= render "shared/flash_alert" %>

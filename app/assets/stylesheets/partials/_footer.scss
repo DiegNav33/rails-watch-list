@@ -1,13 +1,18 @@
 footer {
-  background-color: rgba(184, 149, 149, 0.5);
-   margin-top: auto;
+  background-color: #0E1012;
+  margin-top: auto;
 
   li {
     padding:  0 .5rem;
   }
 
-  a {
-    color: black;
+  a, small {
+    color: #fff;
+    transition: .5s;
+  }
+
+  a:hover {
+    color: red;
   }
 
   .active {

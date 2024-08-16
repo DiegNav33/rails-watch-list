@@ -1,5 +1,7 @@
 #bgImg {
-  background-image: asset-url("bg.jpg");
+  // background-image: asset-url("bg.jpg");
+  // background-color: #0E1012;
+  background: linear-gradient(to bottom, #0E1012, #3d3737 50%, #988d8d);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -7,8 +9,8 @@
   position: absolute;
   width: 100%;
   z-index: -1;
-  opacity: 0.5;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  filter: brightness(30%); /* Réduit la luminosité de l'image */
 }
 
 #bgContainer {
@@ -16,13 +18,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // position: relative; /* Assure que le contenu reste au-dessus de l'image */
+  position: relative; /* Assure que le contenu reste au-dessus de l'image */
+  z-index: 100;
 
   h1, h2 {
-    background: linear-gradient(to right, darkviolet, red); /* Dégradé du violet foncé au rouge */
-    -webkit-background-clip: text; /* Applique le fond uniquement au texte */
-    -webkit-text-fill-color: transparent; /* Rends le texte transparent pour voir le dégradé */
     font-weight: bold;
+    color: #fff;
   }
 
   #btnMain {
