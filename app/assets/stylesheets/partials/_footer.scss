@@ -1,0 +1,17 @@
+footer {
+  background-color: rgba(184, 149, 149, 0.5);
+   margin-top: auto;
+
+  li {
+    padding:  0 .5rem;
+  }
+
+  a {
+    color: black;
+  }
+
+  .active {
+    color: red;
+    text-decoration: underline;
+  }
+}

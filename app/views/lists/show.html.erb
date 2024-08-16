@@ -7,10 +7,11 @@
   <section class= "text-center text-danger">
     <h1><%= @list.name %></h1>
     <div>
-      <%= link_to "Add movies", new_list_bookmark_path(@list), class: "btn btn-danger"%>
-    </div>
-    <div>
-      <%= link_to "Delete list", list_path(@list), class: "btn btn-danger btn-sm", id: "deleteButton", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the list '#{@list.name}'?"} %>
+      <% if @list.user == current_user %>
+        <%= link_to "Add movies", new_list_bookmark_path(@list), class: "btn btn-danger", id: "addMoviesButton"%>
+      <% else %>
+        <p class="btn btn-success btn-sm disabled" id="userList">By <%= @list.user.first_name %></p>
+      <% end %>
     </div>
     <div>
       <%= link_to lists_path, id: "backButton" do %>

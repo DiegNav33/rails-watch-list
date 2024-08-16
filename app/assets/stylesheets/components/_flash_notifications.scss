@@ -24,3 +24,15 @@
   border: .5px solid red;
   background-color: rgba(255, 0, 0, 0.1);
 }
+
+
+/* Media query pour les très petits écrans (mobiles en mode portrait) */
+@media (max-width: 480px) {
+  #flashNotice, #flashAlert {
+    text-align: center;
+    left: 50%; /* Place le bord gauche de l'élément au milieu du conteneur parent */
+    transform: translateX(-50%); /* Déplace l'élément vers la gauche de la moitié de sa largeur */
+    top: 5px; /* Positionne l'élément verticalement */
+    font-size: .6rem;
+  }
+}

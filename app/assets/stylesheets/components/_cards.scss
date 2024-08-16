@@ -6,3 +6,18 @@
     transform: translateY(-10px);
   }
 }
+#titleCardIndex {
+  color: #fff;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: .5rem;
+  padding: .5rem;
+  // background: linear-gradient(
+  //   rgba(255, 0, 0, 0.8), /* Rouge avec 50% de transparence */
+  //   rgba(255, 0, 0, 0.8)  /* Rouge avec 20% de transparence */
+  // );
+  background: linear-gradient(to right, darkviolet, red); /* Dégradé du violet foncé au rouge */
+  -webkit-background-clip: text; /* Applique le fond uniquement au texte */
+  -webkit-text-fill-color: transparent; /* Rends le texte transparent pour voir le dégradé */
+}

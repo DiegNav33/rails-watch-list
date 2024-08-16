@@ -2,6 +2,7 @@ class List < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :movies, through: :bookmarks, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  belongs_to :user
   has_one_attached :image
   validates :name, presence: true, uniqueness: true
   validate :image_type

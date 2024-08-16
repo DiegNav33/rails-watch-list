@@ -1,5 +1,5 @@
 <div id="bgImg"></div>
-<div class="container" id="bgContainer">
+<div class="container position-relative" id="bgContainer">
   <section class= "text-center text-danger">
 
     <% if user_signed_in? %>
@@ -8,15 +8,9 @@
       <h1>Welcome to PopCorn</h1>
       <h2>Create a list and save any kind of movies</h2>
     <% end %>
-    <% if @lists.blank? %>
-       <div >
-        <%= link_to "Create your first list", new_list_path, class: "btn btn-danger btn-lg", id: "btnMain" %>
-      </div>
-    <% else %>
-      <div>
-        <%= link_to "Create a new list", new_list_path, class: "btn btn-danger btn-lg", id: "btnMain" %>
-      </div>
-    <% end %>
+    <div>
+      <%= link_to "Create a new list", new_list_path, class: "btn btn-danger", id: "btnMain" %>
+    </div>
   </section>
 </div>
 <div class="container">
@@ -32,12 +26,11 @@
               <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <!-- Card component -->
 
-                <%= link_to list_path(list), class: 'card my-4', id: "cardsIndex", style: "background: url(#{list.image.attached? ? rails_blob_path(list.image, only_path: true) : asset_path('bg.jpg')}); background-size: cover; background-position: center; color:#fff;" do %>
+                <%= link_to list_path(list), class: 'card my-4 position-relative', id: "cardsIndex", style: "background: url(#{list.image.attached? ? rails_blob_path(list.image, only_path: true) : asset_path('bg.jpg')}); background-size: cover; background-position: center; color:#fff;" do %>
                   <!-- Card Content -->
                   <div class="card-body d-flex align-items-center justify-content-center" style="min-height: 150px;">
-                    <h5 class="card-title text-center"><%= list.name.upcase %></h5>
+                    <h5 class="card-title text-center" id="titleCardIndex"><%= list.name.upcase %></h5>
                   </div>
-                  <!-- Card Footer -->
                 <% end %>
               </div>
             <% end %>

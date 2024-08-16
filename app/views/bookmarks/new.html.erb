@@ -25,7 +25,7 @@
       <div class="card-body">
         <h4 class="text-center mb-4">Add a new bookmark</h4>
         <%= simple_form_for [@list, @bookmark] do |f| %>
-          <%= f.association :movie, collection: Movie.all, prompt: "Choose a movie", label: false, input_html: { class: 'form-control' } %>
+          <%= f.association :movie, collection: Movie.order(:title), prompt: "Choose a movie", label: false, input_html: { class: 'form-control' } %>
           <%= f.input :comment, placeholder: 'Your comment...', label: false, input_html: { class: 'form-control mt-3' } %>
           <%= f.submit "Add Bookmark", class: 'btn btn-outline-success btn-block mt-3' %>
         <% end %>
